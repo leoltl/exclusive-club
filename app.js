@@ -10,6 +10,8 @@ var config = require('./config');
 
 var app = express();
 
+console.log(config.get('session-secret'))
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
