@@ -39,7 +39,7 @@ module.exports = function makeController(PostModel) {
     const infoMsg = req.flash('info');
     try {
       const query = req.user && req.user.role == 'admin' ? {} : { deleted: false };
-      const posts = await PostModel.find(query).limit(20).populate('user', '-password_hash -salt');
+      const posts = await PostModel.find(query).limit(20).populate('user', '-password_hash -salt').populate('last_modified_by', '-password_hash -salt');
       res.render('index', {
         posts,
         flashMsg: [...errorMsg,...infoMsg]

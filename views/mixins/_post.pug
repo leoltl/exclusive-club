@@ -5,7 +5,7 @@ mixin _post(post)
     if post.deleted
       p.text-xs.text-gray-600.flex.items-center.italic
         include ../lock-icon.pug
-        | This post is currently hidden from other members
+        | This post is currently hidden from other members - by #{post.last_modified_by.first_name} at #{new Date(post.updated_at).toLocaleString()}
     .text-gray-900.font-bold.text-xl.mb-2
       | #{post.title}
     .text-gray-700.text-base
