@@ -1,0 +1,70 @@
+extends layout
+
+block content
+  main.w-full.h-full.px-1
+    section(
+      class="md:flex md:justify-evenly"
+    )
+      .max-w-sm.rounded.overflow-hidden.shadow-lg.pt-10(
+        class="md:mt-20"
+      )
+        .p-10.pb-0.text-center
+          .font-bold.text-xl.mb-2 Active Member
+          p.text-gray-700.text-base
+            span.text-gray-700.text-md Perks:&nbsp;
+            | Active member are members that able to see the author of each message and post new messages.
+          p.text-gray-700.text-small.mt-5 $9.99/mo
+        form(
+          action='/users/upgrade?to=active'
+          method='POST'
+          class='flex flex-col items-center py-6'
+        )
+          - var disabled_active = authUser.membership_status === 'active' && authUser.role !== 'admin'
+          button(
+            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            class=`${disabled_active ? "bg-blue-500 text-white font-bold py-2 px-4 rounded opacity-50 cursor-not-allowed" : ""}`
+            disabled=disabled_active
+          ) #{`${authUser.isAdmin ? 'Downgrade' : 'Upgrade'} Now`}
+      
+      .max-w-sm.rounded.overflow-hidden.shadow-lg.pt-10(
+        class="md:mt-20"
+      )
+        .p-10.pb-0.text-center
+          .font-bold.text-xl.mb-2 Admin
+          p.text-gray-700.text-base
+            span.text-gray-700.text-md Perks:&nbsp;
+            | Admin are members that able to see everything and also has the ability to delete messages
+          p.text-gray-700.text-small.mt-5 $14.99/mo
+        form(
+          action='/users/upgrade?to=admin'
+          method='POST'
+          class='flex flex-col items-center py-6'
+        )
+          - var disabled_admin = authUser.role === 'admin' || authUser.membership_status === 'pending'
+          button(
+            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            class=`${disabled_admin ? "bg-blue-500 text-white font-bold py-2 px-4 rounded opacity-50 cursor-not-allowed" : ""}`
+            disabled=disabled_admin
+          ) Upgrade Now
+
+      .max-w-sm.rounded.overflow-hidden.shadow-lg.pt-10(
+        class="md:mt-20"
+      )
+        .p-10.pb-0.text-center
+          .font-bold.text-xl.mb-2 Basic member
+          p.text-gray-700.text-base
+            span.text-gray-700.text-md Perks:&nbsp;
+            | Basic member are members that able to see author of each message but could not post new messages
+          p.text-gray-700.text-small.mt-5 $0.00/mo
+        form(
+          action='/users/upgrade?to=pending'
+          method='POST'
+          class='flex flex-col items-center py-6'
+        )
+          - var disabled_pending = authUser.membership_status === 'pending'
+          button(
+            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            class=`${disabled_pending ? "bg-blue-500 text-white font-bold py-2 px-4 rounded opacity-50 cursor-not-allowed" : ""}`
+            disabled=disabled_pending
+          ) Downgrade Now
+    p.max-w-lg.text-center.mx-auto.mt-10.text-lg Your current membership is: #{authUser.membership} Member

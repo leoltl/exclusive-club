@@ -1,0 +1,23 @@
+extends layout
+include mixins/_text_field
+
+block content
+  main.w-full.flex.flex-col.items-center.pt-10.px-1(
+    class="md:p-10"
+  )
+    form.w-full.max-w-sm.bg-white.shadow-md.rounded.px-8.pt-6.pb-8(action='' method='POST')
+      p.text-lg.mb-6 Confirm your upgrade to #{upgradeTo} member
+      .mb-4
+        +_text_field({
+          name: 'passphrase', placeholder: 'Enter the passpharse to confirm upgrade...'
+        })
+
+      button(
+        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+        type='submit'
+      ) Submit
+
+      .mt-5
+        include lock-icon.pug
+        p.text-sm.text-gray-600.flex.items-center.italic.mt-1
+          | default passphrase is "yes", or you can specify passphrase for each user type in ENV variable

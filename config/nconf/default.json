@@ -1,0 +1,9 @@
+{
+  "session-config": {
+      "resave": false,
+      "saveUninitialized": true,
+      "cookie": {
+        "maxAge": 86400000
+    }
+  }
+}

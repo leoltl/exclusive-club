@@ -1,0 +1,27 @@
+header
+  nav.w-full.flex.items-center.bg-blue-500( 
+    class="lg:px-40"
+  )
+    .logo.font-semibold.text-xl.tracking-tight.text-blue-200.ml-3
+      a(href='/') #{appname}
+    .flex-grow
+    if authUser
+      .m-3
+        a(href='/users/upgrade') 
+          button(
+            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 mr-2 rounded border border-white"
+          ) Membership
+        a(href='/post/new') 
+          button(
+            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 mr-2 rounded border border-white"
+          ) Create post
+        a(href='/sign-out') 
+          button(
+            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded border border-white"
+          ) Logout
+    else
+      .m-3
+        a(href='/sign-in') 
+          button(
+            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded border  border-white"
+          ) Login/ Register

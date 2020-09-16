@@ -1,0 +1,11 @@
+extends layout
+include mixins/_post
+
+block content
+  main.w-full.h-full.px-1
+    if authUser
+      .text-3xl.mx-auto.max-w-3xl.p-6
+        | Welcome back in the club, #{authUser.first_name}!
+    section.flex.flex-col.items-center.mt-6
+      each post in posts
+        +_post(post)
