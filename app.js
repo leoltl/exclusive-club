@@ -10,7 +10,7 @@ var config = require('./config');
 
 var app = express();
 
-console.log(config.get('session-secret'))
+console.log(config.get('SESSION_SECRET'))
 console.log(config.get('MONGO_URI'))
 
 // view engine setup
@@ -29,7 +29,7 @@ var MongoStore = require('connect-mongo')(session);
 var sessionsDBConn = require('./config/dbsetup')(config.get('MONGO_URI'));
 app.use(session({
   ...config.get('session-config'), 
-  secret: config.get('session-secret'),
+  secret: config.get('SESSION_SECRET'),
   store: new MongoStore({ mongooseConnection: sessionsDBConn }),
 }));
 app.use(flash());
