@@ -3,7 +3,7 @@
 Project to create a message board with different user roles, made with Express.  
 This project was inspired by [The Odin Project](https://www.theodinproject.com/) online learning curriculum.
 
-:zap:[Live demo](https://leoltl-exclusive-club.herokuapp.com/) 
+[Live demo](https://leoltl-exclusive-club.herokuapp.com/) 
 
 ## Learning Objectives
 * Practice password authentication
