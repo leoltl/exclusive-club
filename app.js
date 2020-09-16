@@ -10,9 +10,6 @@ var config = require('./config');
 
 var app = express();
 
-console.log(config.get('SESSION_SECRET'))
-console.log(config.get('MONGO_URI'))
-
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
