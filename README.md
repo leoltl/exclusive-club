@@ -1,20 +1,14 @@
-# Members Only
+# Exclusive Club
 
-Project to create a message board with different user roles, made with Express.  
+Project to create a message board with different user roles, ability to reassign roles and display content base on user role/ permission. Made with Express.  
 This project was inspired by [The Odin Project](https://www.theodinproject.com/) online learning curriculum.
 
 [Live demo](https://leoltl-exclusive-club.herokuapp.com/) 
 
-## Learning Objectives
-* Practice password authentication
-* Use MongoDB as a database 
-* Validate & sanitize data 
-* Give users different abilities and permissions
-* Deploy to Heroku
 
 ## Tech stack
 - **Server side**: Node with Express (ES2017 async/await)
-- **Database**: Mongoose (ODM), Mongo: prod/development
+- **Database**: Mongoose, Mongo
 - **Authentication**: Passport.js
 - **Templates**: Pug
 - **Styling**: Tailwind css
@@ -30,10 +24,22 @@ User | guest1@email.com | password
 Member | guest2@email.com | password
 Admin | admin@ec.ca | password
 
-Users have different permissions:
-* Non user can only view messages.
-* User can view and post messages.
-* Member can view, post and see messages' author.
-* Admin can view, create and delete post and see messages' author.
+**As an unauthenticated user**:
+- I can see a feed of messages with author hidden
+- I can login with username and password.
+- I can create a new account.
 
+**As authenticated (pending) user**:
+- I can view post with author details showing
+- I can upgrade/downgrade my membership on membership tab
 
+**As authenticated (active) user**:
+- I can view post with author details showing
+- I can create new post
+- I can upgrade/downgrade my membership on membership tab
+
+**As Admin user**:
+- I can view post with author details showing
+- I can create new post
+- I can upgrade/downgrade my membership on membership tab
+- I can delete other users' message from showing on the message board
