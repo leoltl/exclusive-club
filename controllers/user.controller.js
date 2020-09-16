@@ -96,7 +96,10 @@ module.exports = function makeController(UserModel, passport) {
   }
 
   function update_post(req, res, next) {
-
+    /* upgrade membership flow:
+      set membership upgrade data to session in this route, then send user to upgrade confirmation page. If user enters correct passphrase
+      at confirmation page, retrieve the upgrade data back from session store, and then call db update function with the data.
+    */
     try {
       const upgradeTo = req.query.to;
       const [shouldUpgrade, howToUpdateRoleToDB] = req.user.shouldandHowToUpgrade(upgradeTo);
