@@ -11,6 +11,7 @@ var config = require('./config');
 var app = express();
 
 console.log(config.get('session-secret'))
+console.log(config.get('MONGO_URI'))
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
