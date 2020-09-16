@@ -25,7 +25,7 @@ function authorize(roles) {
   }
 
   return function (req, res, next) {
-    if (roles.includes(req.user.role) || roles.includes(req.user.membership_status)) {
+    if (_roles.includes(req.user.role) || _roles.includes(req.user.membership_status)) {
       return next();
     }
     req.flash('error', 'You are not authorize. Consider upgrade your membership to get this feature.');
