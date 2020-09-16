@@ -1,14 +1,13 @@
 # Exclusive Club
 
 Project to create a message board with different user roles, ability to reassign roles and display content base on user role/ permission. Made with Express.  
-This project was inspired by [The Odin Project](https://www.theodinproject.com/) online learning curriculum.
 
 [Live demo](https://leoltl-exclusive-club.herokuapp.com/) 
 
 
 ## Tech stack
 - **Server side**: Node with Express (ES2017 async/await)
-- **Database**: Mongoose, Mongo
+- **Database**: Mongoose, MongoDB
 - **Authentication**: Passport.js
 - **Templates**: Pug
 - **Styling**: Tailwind css
